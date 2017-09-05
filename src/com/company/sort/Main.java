@@ -17,6 +17,7 @@ public class Main {
             array[i] = in.nextInt();
         }
 
+
         print(array);
         bubbleSort(array);
         quickSort(array, 0, array.length - 1);
