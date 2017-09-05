@@ -1,12 +1,22 @@
 package com.company.sort;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  * 常用排序算法
  */
 public class Main {
 
     public static void main(String[] args) {
-        int[] array = {5, 2, 6, 9, 8, 0, 1, 4, 7, 3};
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();//获取控制台输入的第一个整数
+        //获取n个整数
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = in.nextInt();
+        }
+
         print(array);
         bubbleSort(array);
         quickSort(array, 0, array.length - 1);
@@ -14,6 +24,9 @@ public class Main {
         mergeSort(array, 0, array.length - 1);
         selectionSort(array);
         shellSort(array, array.length);
+        Arrays.sort(array);//快排
+        Arrays.sort(array, 0, array.length);
+        Arrays.copyOf(array, array.length);//把原数组复制前n个元素到新数组，返回值为新数组
         print(array);
     }
 
@@ -45,7 +58,7 @@ public class Main {
     public static void selectionSort(int[] array) {
         int temp;
         for (int i = 0; i < array.length - 1; i++) {
-            for (int j = i + 1; j <= array.length - 1; j++) {// 第i个和第j个比较j可以取到最后一位，所以要用j<=array.length-1
+            for (int j = i + 1; j < array.length; j++) {// 第i个和第j个比较j可以取到最后一位，所以要用j<array.length
                 if (array[i] > array[j]) {// 注意和冒泡排序的区别，这里是i和j比较。
                     temp = array[i];
                     array[i] = array[j];
