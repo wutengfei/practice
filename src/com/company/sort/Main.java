@@ -181,4 +181,20 @@ public class Main {
             quickSort(array, low + 1, right);
         }
     }
+
+    /**
+     * 辗转相除法
+     *
+     * @param a 被除数  a>b
+     * @param b 除数
+     * @return 最大公约数
+     */
+    private static int gcd(int a, int b) {
+        while (a % b != 0) {
+            int c = a % b;
+            a = b;
+            b = c;
+        }
+        return b;
+    }
 }
