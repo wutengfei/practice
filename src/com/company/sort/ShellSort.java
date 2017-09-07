@@ -4,7 +4,7 @@ package com.company.sort;
  * 希尔排序
  */
 public class ShellSort {
-    public void shellSort(int[] array, int n) {
+    public static void shellSort(int[] array, int n) {
         int i, j, gap;
         int temp;
         for (gap = n / 2; gap > 0; gap /= 2) {// 计算gap大小
@@ -22,11 +22,10 @@ public class ShellSort {
             }
         }
     }
- 
+
     public static void main(String[] args) {
-        ShellSort shellSort = new ShellSort();
-        int[] array = {5, 2, 1, 3, 8, 9, 7, 4, 6  };
-        shellSort.shellSort(array, array.length);// 注意为数组的个数
+        int[] array = {5, 2, 1, 3, 8, 9, 7, 4, 6};
+        shellSort(array, array.length);// 注意为数组的个数
         for (int m = 0; m <= array.length - 1; m++) {
             System.out.print(array[m] + "\t");
         }

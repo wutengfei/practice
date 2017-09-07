@@ -4,7 +4,7 @@ package com.company.sort;
  * 归并排序
  */
 public class MergeSortTest {
-    public void sort(int[] array, int left, int right) {
+    public static void sort(int[] array, int left, int right) {
         if (left >= right)
             return;
         // 找出中间索引
@@ -35,7 +35,7 @@ public class MergeSortTest {
      * @param right
      *            右数组最后一个元素的索引
      */
-    public void merge(int[] array, int left, int center, int right) {
+    public static void merge(int[] array, int left, int center, int right) {
         // 临时数组
         int[] tmpArr = new int[array.length];
         // 右数组第一个元素索引
@@ -68,8 +68,8 @@ public class MergeSortTest {
  
     public static void main(String[] args) {
         int[] array = new int[] { 5, 2, 1, 3, 8, 9, 7, 4, 6 };
-        MergeSortTest mergeSortTest = new MergeSortTest();
-        mergeSortTest.sort(array, 0, array.length - 1);
+
+       sort(array, 0, array.length - 1);
         System.out.println("排序后的数组：");
         for (int m = 0; m <= array.length - 1; m++) {
             System.out.print(array[m] + "\t");

@@ -4,7 +4,7 @@ package com.company.sort;
  * 直接插入排序法
  */
 public class InsertSort {
-    public void insertSort(int[] array, int first, int last) {
+    public static void insertSort(int[] array, int first, int last) {
         int temp, i, j;
         for (i = first + 1; i <= last - 1; i++) {// 默认以第一个数为有序序列，后面的数为要插入的数。
             temp = array[i];
@@ -21,11 +21,10 @@ public class InsertSort {
             System.out.println();
         }
     }
- 
+
     public static void main(String[] args) {
-        InsertSort insertSort = new InsertSort();
-        int[] array = { 5, 2, 1, 3, 8, 9, 7, 4, 6  };
-        insertSort.insertSort(array, 0, array.length);// 注意此处是0-9而不是0-8
+        int[] array = {5, 2, 1, 3, 8, 9, 7, 4, 6};
+        insertSort(array, 0, array.length);// 注意此处是0-9而不是0-8
         for (int i = 0; i <= array.length - 1; i++) {
             System.out.print(array[i] + "\t");
         }
