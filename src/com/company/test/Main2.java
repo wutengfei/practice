@@ -1,4 +1,4 @@
-package com.company.bishi;
+package com.company.test;
 
 /**
  * 尽管是一个CS专业的学生，小B的数学基础很好并对数值计算有着特别的兴趣，喜欢用计算机程序来解决数学问题，

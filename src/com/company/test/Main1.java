@@ -1,4 +1,4 @@
-package com.company.bishi;
+package com.company.test;
 
 import java.util.Arrays;
 import java.util.Scanner;

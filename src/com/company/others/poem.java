@@ -1,11 +1,8 @@
-package com.company;
+package com.company.others;
 
+import java.util.Scanner;
 
-/**
- * Created by dell on 2016/9/23.
- * 随机生成一首宋词
- */
-public class SongPoem {
+public class poem {
     public static void main(String[] args) {
         String[] words = new String[]{"东风", "何处", "人间", "风流", "归去", "春风", "西风", "归来",
                 "江南", "相思", "梅花", "千里", "回首", "明月", "多少", "如今", "阑干", "年年", "万里",
@@ -16,17 +13,29 @@ public class SongPoem {
                 "心事", "黄花", "一声", "佳人", "长安", "东君", "断肠", "而今", "鸳鸯", "为谁", "十年",
                 "去年", "少年", "海棠", "寂寞", "无情", "不是", "时候", "肠断", "富贵", "蓬莱", "昨夜",
                 "行人", "今夜", "谁知", "不似", "江上", "悠悠", "几度", "青山", "何时", "天气", "惟有",
-                "一曲", "月明", "往事", ""};
-
-        int random[] = new int[12];
-        for (int i = 0; i < 12; i++) {
-            random[i] = (int) Math.floor(Math.random() * 100);
+                "一曲", "月明", "往事","" };
+        for (; ; ) {
+            System.out.println("请输入手机号");
+            Scanner sc = new Scanner(System.in);
+            String telephoneNo = sc.next() + "";//把输入的数字转换为字符串
+            String a[] = new String[6];//两位一截取存入新数组
+            for (int i = 0; i < 11; i += 2) {
+                if (i != 10) {
+                    a[i / 2] = telephoneNo.charAt(i) + "" + telephoneNo.charAt(i + 1);
+                } else {
+                    a[i / 2] = telephoneNo.charAt(i) + "";
+                }
+            }
+            int b[] = new int[6];
+            for (int i = 0; i < 6; i++) {
+                b[i] = Integer.parseInt(a[i]);//字符串转为int
+                // System.out.print(b[i]);
+            }
+            for (int i = 0; i < 6; i++) {
+                if (i == 3) System.out.print(",");
+                System.out.print(words[b[i]]);
+            }
+            System.out.println();
         }
-        for (int i = 0; i < 12; i++) {
-            if (i % 3 == 0) System.out.println();
-            System.out.print(words[random[i]]);
-        }
-        System.out.println();
     }
 }
-

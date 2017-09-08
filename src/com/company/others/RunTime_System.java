@@ -1,4 +1,4 @@
-package com.company;
+package com.company.others;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
