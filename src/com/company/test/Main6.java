@@ -1,6 +1,7 @@
 package com.company.test;
 /**
- *
+ *今日头条笔试题2
+ * 测试用例未通过
  */
 
 import java.util.Scanner;
