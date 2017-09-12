@@ -40,20 +40,27 @@ public class QuChongAndSort {
 
         //2、去除数组中的重复元素个数。新开一个数组，原数组元素在新开数组中没有则加入
         int b[] = new int[length];
-        int index = 0;
-        List<Integer> list = new ArrayList<Integer>();
-        for (int i = 0; i < length; i++) {
-            if (!list.contains(array[i])) {
-                list.add(array[i]);
-                b[index] = array[i];
-                index++;
+//        int index = 0;
+//        List<Integer> list = new ArrayList<Integer>();
+//        for (int i = 0; i < length; i++) {
+//            if (!list.contains(array[i])) {
+//                list.add(array[i]);
+//                b[index] = array[i];
+//                index++;
+//            }
+//        }
+Arrays.sort(array);
+        b[0] = array[0];
+        int j = 1;
+        for (int i = 1; i < length; i++) {
+            if (array[i] != array[i - 1]) {
+                b[j++] = array[i];
             }
         }
-
         //3、将数组b[]排序
-        Arrays.sort(b, 0, index - 1);
+       // Arrays.sort(b, 0, j - 1);
         //4、输出
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < j; i++) {
             System.out.print(b[i] + "[" + map.get(b[i]) + "]" + " ");
         }
     }
