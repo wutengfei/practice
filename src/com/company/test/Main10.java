@@ -21,6 +21,7 @@ public class Main10 {
         }
         subarraySum1(b);
         subarraySum2(b);
+        subarraySum3(b);
     }
 
     //暴力法求最大子数组和问题
@@ -51,7 +52,7 @@ public class Main10 {
     若已知A[1,2,....,j]的最大子数组，则A[1,2,.....,j,j+1]的最大子数组要么是A[1,2,....,j]的最大子数组，
     要么是某个子数组A[i,....,j+1](1<=i<=j+1)。
     */
-    private static void  subarraySum2(int[] a) {
+    private static void subarraySum2(int[] a) {
         int maxSum = a[0];//记录最大子数组的和
         int low = 0;//记录最大子数组的底
         int high = 0;//记录最大子数组的高
@@ -69,6 +70,32 @@ public class Main10 {
         }
         System.out.println(maxSum + " " + low + " " + high);
     }
+
+    /**
+     * 在线法求最大子数组和问题
+     * 理解这个算法的关键是：使用thisSum来计算当前连续子数组的和，如果thisSum小于0，
+     * 那么无论后面再加上什么数字都只会让子数组变小，所以抛弃当前子数组，重新开始计算子数组的值。
+     * 可以看到这个算法的时间复杂度为O（n）而且控件复杂度为S（n），是解决这一个问题非常有效的一个算法。
+     */
+    private static void subarraySum3(int[] a) {
+        int sum = 0;//记录子数组的和
+        int thisSum = 0;
+        int low = 0;//记录子数组的底
+        int high = 0;//记录子数组的高
+        for (int i = 0; i < a.length; i++) {
+            thisSum += a[i];
+            if (thisSum > sum) {
+                sum = thisSum;
+                high = i;
+            } else if (thisSum < 0) {
+                thisSum = 0;
+                low = i;
+            }
+        }
+        System.out.println(sum + " " + low + " " + high);
+
+    }
+
 }
 
 
