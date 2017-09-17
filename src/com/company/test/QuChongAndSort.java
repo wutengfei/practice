@@ -22,9 +22,9 @@ public class QuChongAndSort {
         sortAndCount(b, b.length);
     }
 
-    //这里有三个问题：排序、统计元素个数、去重。统计元素个数应在去重之前，去重后再排序
+    //这里有三个问题：排序、统计各个元素个数、去重。统计元素个数应在去重之前，去重后再排序
+    //1、统计个数。用一个Map来记录某个元素的出现次数
     public static void sortAndCount(int array[], int length) {
-        //1、统计元素出现次数。用一个Map来记录某个元素的出现次数
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         //存储Map<array[i],count> map中键是不允许重复的
         int count;
@@ -38,28 +38,32 @@ public class QuChongAndSort {
             map.put(array[i], count);
         }
 
-        //2、去除数组中的重复元素个数。新开一个数组，原数组元素在新开数组中没有则加入
-        int b[] = new int[length];
-//        int index = 0;
-//        List<Integer> list = new ArrayList<Integer>();
-//        for (int i = 0; i < length; i++) {
-//            if (!list.contains(array[i])) {
-//                list.add(array[i]);
-//                b[index] = array[i];
-//                index++;
+        //2_方法1 去重。新开一个数组，原数组元素在新开数组中没有则加入
+//       int b[] = new int[length];
+//        Arrays.sort(array);
+//        b[0] = array[0];
+//        int j = 1;
+//        for (int i = 1; i < length; i++) {
+//            if (array[i] != array[i - 1]) {
+//                b[j++] = array[i];
 //            }
 //        }
-Arrays.sort(array);
-        b[0] = array[0];
-        int j = 1;
-        for (int i = 1; i < length; i++) {
-            if (array[i] != array[i - 1]) {
-                b[j++] = array[i];
+
+        //2_方法2
+        int b[] = new int[length];
+        int j = 0;
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < length; i++) {
+            if (!list.contains(array[i])) {
+                list.add(array[i]);
+                b[j] = array[i];
+                j++;
             }
         }
-        //3、将数组b[]排序
-       // Arrays.sort(b, 0, j - 1);
-        //4、输出
+        Arrays.sort(b, 0, j - 1);
+
+
+        //3、输出
         for (int i = 0; i < j; i++) {
             System.out.print(b[i] + "[" + map.get(b[i]) + "]" + " ");
         }
