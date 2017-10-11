@@ -7,7 +7,7 @@ package com.company.test;
 
 import java.util.*;
 
-public class QuChongAndSort {
+public class CalculateRepeatItemCount {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
