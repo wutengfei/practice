@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 替换空格
  */
-public class replaceSpace {
+public class ReplaceSpace {
 
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
