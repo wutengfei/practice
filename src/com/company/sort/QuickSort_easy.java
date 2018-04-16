@@ -30,7 +30,7 @@ public class QuickSort_easy {
             while (a[i] <= temp && i < j)//再左往右找到比它大的数
                 i++;
             //交换a[i]、a[j]
-            if (i < j) {
+            if (i < j) {//如果没有这个判断会有多余的交换次数
                 t = a[i];
                 a[i] = a[j];
                 a[j] = t;
@@ -38,7 +38,7 @@ public class QuickSort_easy {
             }
         }
         //基准数归位
-        a[left] = a[i];
+        a[left] = a[i];//while循环完毕之后i=j，所以用a[i],a[j]都可以
         a[i] = temp;
         print(a);
         quickSort(a, left, i - 1);
