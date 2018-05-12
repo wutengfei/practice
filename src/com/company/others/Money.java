@@ -32,10 +32,11 @@ public class Money {
     }
 
     private static int fun(int[] a, int n, int m) {
-        int[] f = new int[100];
+        int[] f = new int[10000];
         f[0] = 1;
         for (int i = 0; i < n; i++)
-            for (int j = a[i]; j <= m; j++)
+            for (int j = a[i];
+                 j <= m; j++)
                 f[j] += f[j - a[i]];
         return f[m];
     }
